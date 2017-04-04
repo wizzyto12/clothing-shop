@@ -17,27 +17,21 @@ public class ClothingItem {
 		this.mFabric = mFabric;
 	}
 
-	public int getWeight()
-	{
+	public int getWeight() {
 		return mWeight;
 	}
 
-	public double calculateFinalPrice()
-	{
+	public double calculateFinalPrice() {
 		double price = mPrice;
-		
-		if (this instanceof Dress && ((Dress)this).mIsEvening)
-		{
+
+		if (this instanceof Dress && ((Dress) this).mIsEvening) {
 			price += price * 0.5;
-		}
-		else if (this instanceof Suit && (mSize == "L" || mSize == "XL" || mSize == "XXL")) {
+		} else if (this instanceof Suit && (mSize == "L" || mSize == "XL" || mSize == "XXL")) {
 			price += price * 0.2;
-		}
-		else if (this instanceof Socks && mColor == "pink")
-		{
+		} else if (this instanceof Socks && mColor == "pink") {
 			price += price;
 		}
-		
+
 		return price;
 	}
 }

@@ -33,20 +33,49 @@ container prizes and orders. Develop a code in Java for creating classes using t
  */
 package task5;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
 import task5.Items.ClothingItem;
 import task5.Items.Dress;
 import task5.Items.Hat;
 import task5.Items.Socks;
 import task5.Items.Suit;
 import task5.Items.Tie;
+import task5.jdbc.SQLConnection;
 
 class Main {
+	// SQL Connection credentials
+	static final String dbuser = "root";
+	static final String dbpassword = "";
+	static final String dbname = "school";
+	static final String dbport = "3306";
+	static final String url = "localhost";
 	
 	static List<ClothingItem> items = new ArrayList<ClothingItem>();
+	
+	static SQLConnection sql = null;
 
 	public static void main(String[] args) {
+		try {
+			sql = new SQLConnection(url, dbport, dbname, dbuser, dbpassword);
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			return;
+		}
+		String[] item_columns = new String[] {"type", "size", "weight", "color", "color_pattern", "price", "fabric"};
+		try {
+			sql.init();
+			sql.insert("items", item_columns,
+					new String[] {"type", "size", "weight", "color", "color_pattern", "price", "fabric"});
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		// Test cases
+		
 		items.add(new Dress(true, "S", 10, "blue", "color pattern", 10, "fabric"));
 		items.add(new Dress(false, "S", 10, "blue", "color pattern", 10, "fabric"));
 		items.add(new Suit("S", 10, "blue", "color pattern", 10, "fabric"));
