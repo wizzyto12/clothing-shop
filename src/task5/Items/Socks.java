@@ -16,5 +16,10 @@ public class Socks extends ClothingItem {
 
 		return price;
 	}
-	
+
+	@Override
+	public String getType() {
+		return "Socks";
+	}
+
 }

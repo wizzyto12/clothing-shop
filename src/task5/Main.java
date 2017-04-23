@@ -52,11 +52,12 @@ class Main {
 	static final String dbname = "school";
 	static final String dbport = "3306";
 	static final String url = "localhost";
-	
+
 	static List<ClothingItem> items = new ArrayList<ClothingItem>();
-	
+
 	static SQLConnection sql = null;
 
+	
 	public static void main(String[] args) {
 		try {
 			sql = new SQLConnection(url, dbport, dbname, dbuser, dbpassword);
@@ -64,16 +65,7 @@ class Main {
 			System.out.println(e.getMessage());
 			return;
 		}
-		String[] item_columns = new String[] {"type", "size", "weight", "color", "color_pattern", "price", "fabric"};
-		try {
-			sql.init();
-			sql.insert("items", item_columns,
-					new String[] {"type", "size", "weight", "color", "color_pattern", "price", "fabric"});
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+
 		// Test cases
 		
 		items.add(new Dress(true, "S", 10, "blue", "color pattern", 10, "fabric"));
@@ -84,11 +76,16 @@ class Main {
 		items.add(new Tie("L", "blue", "color pattern", 10, "fabric"));
 		items.add(new Socks("L", "blue", "color pattern", 10, "fabric"));
 		items.add(new Socks("L", "pink", "color pattern", 10, "fabric"));
+
+		for (ClothingItem ci : items) {
+			sql.insertItem(ci);
+		}
 		
 		Order order = new Order(items);
+		
 
 		System.out.println(String.format("Price: %.2f", order.calculatePrice()));
 		System.out.println(String.format("Weight: %d", order.calculateWeight()));
 		System.out.println(String.format("Container costs: %.2f", order.calculateContainerCosts()));
-    }
+	}
 }

@@ -12,40 +12,35 @@ public class Order {
 	public Order(List<ClothingItem> mItems) {
 		this.mItems = mItems;
 	}
-	
-	public double calculatePrice()
-	{
+
+	public double calculatePrice() {
 		double price = 0;
-		
-		for (ClothingItem clothingItem : mItems)
-		{
+
+		for (ClothingItem clothingItem : mItems) {
 			price += clothingItem.calculateFinalPrice();
 		}
-		
+
 		return price;
 	}
-	
-	public int calculateWeight()
-	{
+
+	public int calculateWeight() {
 		int weight = 0;
-		
-		for (ClothingItem clothingItem : mItems)
-		{
+
+		for (ClothingItem clothingItem : mItems) {
 			weight += clothingItem.getWeight();
 		}
-		
+
 		return weight;
 	}
-	
-	public double calculateContainerCosts()
-	{
+
+	public double calculateContainerCosts() {
 		double containerCosts = 0;
-		
-		for (ClothingItem clothingItem : mItems)
-		{
+
+		for (ClothingItem clothingItem : mItems) {
 			containerCosts += clothingItem.calculateContainerCost();
 		}
-		
+
 		return containerCosts;
 	}
+
 }

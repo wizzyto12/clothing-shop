@@ -6,4 +6,8 @@ public class Tie extends ClothingItem {
 		super(mSize, 0, mColor, mColorPattern, mPrice, mFabric);
 	}
 
+	@Override
+	public String getType() {
+		return "Tie";
+	}
 }

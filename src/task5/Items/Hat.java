@@ -10,4 +10,9 @@ public class Hat extends ClothingItem {
 	public double calculateContainerCost() {
 		return 10;
 	}
+
+	@Override
+	public String getType() {
+		return "Hat";
+	}
 }
