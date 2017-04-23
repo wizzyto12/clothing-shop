@@ -22,16 +22,10 @@ public class ClothingItem {
 	}
 
 	public double calculateFinalPrice() {
-		double price = mPrice;
-
-		if (this instanceof Dress && ((Dress) this).mIsEvening) {
-			price += price * 0.5;
-		} else if (this instanceof Suit && (mSize == "L" || mSize == "XL" || mSize == "XXL")) {
-			price += price * 0.2;
-		} else if (this instanceof Socks && mColor == "pink") {
-			price += price;
-		}
-
-		return price;
+		return mPrice;
+	}
+	
+	public double calculateContainerCost() {
+		return 0;
 	}
 }

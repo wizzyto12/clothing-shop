@@ -38,7 +38,7 @@ public class SQLConnection {
     
     public void init() throws SQLException
     {
-    	String query = "CREATE TABLE IF NOT EXISTS `school`.`items` ( `id` INT NOT NULL AUTO_INCREMENT , `type` VARCHAR NOT NULL , `size` VARCHAR NOT NULL , `weight` VARCHAR NOT NULL , `color` VARCHAR NOT NULL , `color_pattern` VARCHAR NOT NULL , `price` VARCHAR NOT NULL , `fabric` VARCHAR NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
+    	String query = "CREATE TABLE IF NOT EXISTS `school`.`items` ( `id` INT NOT NULL AUTO_INCREMENT , `type` VARCHAR(255) NOT NULL , `size` VARCHAR(255) NOT NULL , `weight` VARCHAR(255) NOT NULL , `color` VARCHAR(255) NOT NULL , `color_pattern` VARCHAR(255) NOT NULL , `price` VARCHAR(255) NOT NULL , `fabric` VARCHAR(255) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
     	execute(query);
     }
     

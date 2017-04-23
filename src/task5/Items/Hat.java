@@ -6,4 +6,8 @@ public class Hat extends ClothingItem {
 		super(mSize, mWeight, mColor, mColorPattern, mPrice, mFabric);
 	}
 
+	@Override
+	public double calculateContainerCost() {
+		return 10;
+	}
 }

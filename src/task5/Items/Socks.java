@@ -6,4 +6,15 @@ public class Socks extends ClothingItem {
 		super(mSize, 0, mColor, mColorPattern, mPrice, mFabric);
 	}
 
+	@Override
+	public double calculateFinalPrice() {
+		double price = mPrice;
+
+		if (mColor == "pink") {
+			price += price;
+		}
+
+		return price;
+	}
+	
 }
